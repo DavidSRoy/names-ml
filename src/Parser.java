@@ -53,7 +53,7 @@ public class Parser {
         Scanner sc = new Scanner(reader);
         while (sc.hasNext()) {
             String str = sc.nextLine();
-            String name = str.substring(str.indexOf(',') + 1);
+            String name = str.substring(str.indexOf(',') + 1).toLowerCase().trim();
             System.out.println(name);
             
             int random = (int) (Math.random() * 10);
@@ -96,13 +96,13 @@ public class Parser {
         int count = 0;
         while (sc.hasNext()) {
             String str = sc.nextLine();
-            String name = str.substring(0, str.indexOf(','));
+            String name = str.substring(0, str.indexOf(',')).toLowerCase().trim();
             System.out.println(name);
 
             int random = (int) (Math.random() * 10);
 
-            //allocate 30% of data for training, rest for testing.
-            if (random >= 7) {
+            //allocate 40% of data for training, rest for testing.
+            if (random >= 6) {
                 try {
                     trainWriter.write(name + "\n");
                 } catch (IOException e) {
