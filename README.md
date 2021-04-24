@@ -1,5 +1,5 @@
-#indian-names-ml
+# indian-names-ml
 Details coming soon!
 
-##Acknowledgements
+## Acknowledgements
 Names datasets forked from @balasahebgulave
