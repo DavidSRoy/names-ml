@@ -1,20 +1,20 @@
-# indian-names-ml
-A machine learning classifier that identifies if a given name is Indian or not.
+# names-ml
+A machine learning classifier that identifies if a given name is from one category or another, when configured with two classifications of names. This project uses a dataset of Indian names and Spanish surnames, but you could easily swap them out for your own dataset and classifications.
 
 ## How It Works
-The algorithm mainly uses the Naive Bayes algorithm (which uses Bayes' Rule) to consider the probability of a 
-given name being "Indian". The datasets include a set of Indian names as well as set of Spanish surnames (see Acknowledgments)
+The algorithm mainly uses the Naive Bayes algorithm (which uses [Bayes' Rule](https://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' Rule") to consider the probability of a 
+given name being from one category or another. This project's datasets include a set of Indian names as well as set of Spanish surnames (see Acknowledgments)
 
 ### Naive Bayes
-Below is the Naive Bayes calculation, where <img src="https://render.githubusercontent.com/render/math?math=I"> is the event that a name is Indian and <img src="https://render.githubusercontent.com/render/math?math=S">
-is the event that a given substring appears in a name.
+Below is the Naive Bayes calculation, where <img src="https://render.githubusercontent.com/render/math?math=I"> is the event that a name is from the category of interest and <img src="https://render.githubusercontent.com/render/math?math=S">
+is the event that a given substring appears in any name.
 <br />
 <br />
 <img src="https://latex.codecogs.com/gif.latex?%5Cmathbb%7BP%7D%28I%20%7C%20S%29%20%3D%20%5Cfrac%7B%5Cmathbb%7BP%7D%28S%20%7C%20I%29%20%5Ccdot%20%5Cmathbb%7BP%7D%28I%29%7D%7B%5Cmathbb%7BP%7D%28S%20%7C%20I%29%20%5Ccdot%20%5Cmathbb%7BP%7D%28I%29%20&plus;%20%5Cmathbb%7BP%7D%28S%20%7C%20%5Cbar%20I%29%20%5Ccdot%20%5Cmathbb%7BP%7D%28%5Cbar%20I%29%7D" />
 
 The original idea was to consider all the individual characters in a name and the probability
-that it appears in an Indian name. However, this can lead to issues where two names (one is Indian,
-the other is not) have the exact same characters, but different spellings. Consider the 
+that it appears in a name of the category of interest. However, this can lead to issues where two names of different classifications
+have the exact same characters, but different spellings. Consider the 
 following case:
 
 <img src="https://latex.codecogs.com/gif.latex?%5Ctext%7BA%20%7D%5Ctext%7BR%20%7D%5Ctext%7BU%20%7D%5Ctext%7BL%20%7D" />
@@ -30,7 +30,7 @@ This approach also accounts for duplicate letters and their positions (such as {
 <br />
 <br />
 *This is for illustrative purposes only. The actual spelling of 'Raúl' contains an accent over the 'u'
-which would be successful recognized separately by the algorithm.
+which would be successful differentiated from 'u' by the algorithm.
 
 
 ## Limitations
@@ -38,13 +38,8 @@ One of the limitations of this project is that there are only two types of names
 When given a name that is not from any of the two classifications, the algorithm is likely to return
 an incorrect label.
 
-Another limitation is that the number of Indian names in the dataset is rather small
-(about 4000) compared to the number of Spanish surnames (about 15000). This bias results in
-a skewed probability, namely <img src="https://latex.codecogs.com/gif.latex?%5Cmathbb%7BP%7D%28I%29" /> and
-<img src="https://latex.codecogs.com/gif.latex?%5Cmathbb%7BP%7D%28%5Cbar%20I%29" />. This can
-be remedied by adding more data to the dataset.
 ## Use Cases
-This algorithm could be adapted for larger purposes. The most immediate would be language
+This algorithm can easily be adapted for larger purposes. The most immediate would be language
 detection, where, given an input text, the algorithm would return the langauge of the text.
 
 ## Acknowledgements
