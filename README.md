@@ -1,5 +1,5 @@
 # names-ml
-A machine learning classifier that identifies if a given name is from one category or another, when configured with two classifications of names. This project uses a dataset of Indian names and Spanish surnames, but you could easily swap them out for your own dataset and classifications.
+A machine learning classifier that identifies if a given name is from one category or another, when configured with two classifications of names.
 
 ## How It Works
 The algorithm mainly uses the Naive Bayes algorithm (which uses [Bayes' Rule](https://en.wikipedia.org/wiki/Bayes%27_theorem "Bayes' Rule") to consider the probability of a 
